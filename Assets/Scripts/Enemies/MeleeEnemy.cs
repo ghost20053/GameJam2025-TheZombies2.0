@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Authentication;
+using Unity.Cinemachine;
 using UnityEngine;
 using UnityEngine.AI;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -112,4 +114,12 @@ public class MeleeEnemy : MonoBehaviour
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, sightRange);
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (gameObject.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
+    } 
 }
