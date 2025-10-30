@@ -47,12 +47,12 @@ public class EnemyManager : MonoBehaviour
     {
         int remaining = totalEnemies - deadEnemies;
 
-        //  Update through GameUIManager (preferred central HUD)
+        /*  Update through GameUIManager (preferred central HUD)
         if (GameUIManager.Instance != null)
         {
             GameUIManager.Instance.UpdateEnemyCounter(remaining);
         }
-
+        */
         //  Fallback: update direct TMP text if needed
         if (enemyCounterText != null)
         {
