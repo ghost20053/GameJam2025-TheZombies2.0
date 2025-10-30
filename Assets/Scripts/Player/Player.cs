@@ -13,7 +13,7 @@ public class BulletType
     public int damage = 20;         // NEW: damage this bullet does
 }
 
-public class PlayerMovement : MonoBehaviour
+public class Player : MonoBehaviour
 {
     [Header("References")]
     public CharacterController controller;

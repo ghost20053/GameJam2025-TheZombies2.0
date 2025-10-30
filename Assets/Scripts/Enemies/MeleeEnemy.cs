@@ -11,7 +11,10 @@ public class MeleeEnemy : MonoBehaviour
     public Transform player;
     public LayerMask whatIsGround, whatIsPlayer;
 
-    public float health;
+    [Header("Stats")]
+    public int maxHealth = 100;
+    private int health;
+    private bool isDead = false;
 
     //Attacking
     public float timeBetweenAttacks;
@@ -103,6 +106,26 @@ public class MeleeEnemy : MonoBehaviour
     private void DestroyEnemy()
     {
         Destroy(gameObject);
+    }
+    public void TakeDamage(int amount, Vector3 hitForce)
+    {
+        if (isDead) return;
+
+        health -= amount;
+        if (health <= 0)
+        {
+            Die(hitForce);
+        }
+    }
+
+    private void Die(Vector3 hitForce)
+    {
+        isDead = true;
+        meleeEnemy.enabled = false;
+        Destroy(gameObject);
+
+
+        EnemyManager.Instance?.EnemyDied();
     }
 
     private void OnDrawGizmosSelected()
