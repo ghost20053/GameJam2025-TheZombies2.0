@@ -56,6 +56,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: wrap
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: be0e7b9b0551083448d8e59d06740500, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -121,6 +125,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b0b88cbaf7e6a55428af2c91c552fe28, type: 3}
       propertyPath: m_Name
       value: wicks
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b0b88cbaf7e6a55428af2c91c552fe28, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -200,6 +208,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantleg
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17a621b0d02f68345b6aa48a90259a69, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -277,6 +289,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 1b9edede2909325408ae8fcf7443f2e0, type: 3}
       propertyPath: m_Name
       value: explosives
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1b9edede2909325408ae8fcf7443f2e0, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -362,6 +378,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: plantleg (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 17a621b0d02f68345b6aa48a90259a69, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -427,6 +447,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c2d50f09b5a42924e97e195a419d41d6, type: 3}
       propertyPath: m_Name
       value: dumbasspumpkinteeth
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c2d50f09b5a42924e97e195a419d41d6, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -505,6 +529,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 3f88917856a3269488e6205955609185, type: 3}
       propertyPath: m_Name
       value: BombPumpkin
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f88917856a3269488e6205955609185, type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3f88917856a3269488e6205955609185, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
