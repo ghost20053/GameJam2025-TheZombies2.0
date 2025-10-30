@@ -1,7 +1,14 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class Enemy : MonoBehaviour
 {
+    public NavMeshAgent enemy;
+    public GameObject Player;
+
     [SerializeField] public float speed;
 
     private WaveSpawner waveSpawner;
@@ -14,15 +21,14 @@ public class Enemy : MonoBehaviour
     }
 
     void Update()
-    {
-        transform.Translate(transform.forward * speed * Time.deltaTime);
+    { 
+
+        enemy.SetDestination(Player.transform.position * speed * Time.deltaTime);
 
         countdown -= Time.deltaTime;
 
         if (countdown <= 0)
         {
-            Destroy(gameObject);
-
             waveSpawner.waves[waveSpawner.currentWaveIndex].enemiesLeft--;
         }
     }
