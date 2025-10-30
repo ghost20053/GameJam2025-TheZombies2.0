@@ -71,7 +71,7 @@ public class ProjectileEnemy : MonoBehaviour
     {
         //Make sure enemy doesnt move
 
-        projectileEnemy.SetDestination(transform.position);
+        //projectileEnemy.SetDestination(transform.position);
 
         transform.LookAt(player);
 
