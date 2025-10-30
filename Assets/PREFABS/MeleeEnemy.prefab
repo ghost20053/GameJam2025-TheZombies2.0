@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1831929667624291963}
   m_Layer: 0
   m_Name: MeleeEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +68,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9875a245ac49007498213638a307faa1, type: 2}
+  - {fileID: 2100000, guid: 744c0da6ae6fd6c40b04551564b3cfe2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86cdf48da0a71bb4dbac97fd7f900434, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 7121344224417548516}
+  meleeEnemy: {fileID: 0}
   player: {fileID: 9116926656786328643, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
   whatIsGround:
     serializedVersion: 2
