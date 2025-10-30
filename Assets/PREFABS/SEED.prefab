@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 461296f570308824988a91ba425df40e, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 203b5683785d9a942943398b6788acb8, type: 2}
+      objectReference: {fileID: 2100000, guid: fe6fd02ffa007b64685b736b32ce3789, type: 2}
     - target: {fileID: 919132149155446097, guid: 461296f570308824988a91ba425df40e, type: 3}
       propertyPath: m_Name
       value: SEED
