@@ -154,7 +154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17a621b0d02f68345b6aa48a90259a69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.008817196
+      value: 0.583
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17a621b0d02f68345b6aa48a90259a69, type: 3}
       propertyPath: m_LocalPosition.y
@@ -316,7 +316,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17a621b0d02f68345b6aa48a90259a69, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.002603054
+      value: -0.156
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 17a621b0d02f68345b6aa48a90259a69, type: 3}
       propertyPath: m_LocalPosition.y
@@ -504,7 +504,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 5b14100656584c74c8b8ba1f759d2466, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f88917856a3269488e6205955609185, type: 3}
       propertyPath: m_Name
-      value: BombPumpkin 1
+      value: BombPumpkin
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
