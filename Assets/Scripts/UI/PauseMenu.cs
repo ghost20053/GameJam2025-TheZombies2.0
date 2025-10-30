@@ -50,13 +50,6 @@ public class PauseMenu : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-
-        // Hide UI
-        if (GameUIManager.Instance != null)
-            GameUIManager.Instance.ToggleUI(false);
-
-        if (PowerUpUIManager.Instance != null)
-            PowerUpUIManager.Instance.ToggleUI(false); // NEW
     }
 
     public void ResumeGame()
@@ -69,13 +62,6 @@ public class PauseMenu : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
-
-        // Show UI
-        if (GameUIManager.Instance != null)
-            GameUIManager.Instance.ToggleUI(true);
-
-        if (PowerUpUIManager.Instance != null)
-            PowerUpUIManager.Instance.ToggleUI(true); // NEW
     }
 
     public void RestartLevel()

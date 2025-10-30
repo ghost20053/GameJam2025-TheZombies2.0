@@ -1,205 +1,128 @@
-﻿using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-
-[System.Serializable]
-public class BulletType
-{
-    public GameObject prefab;       // Bullet prefab to shoot
-    public Sprite icon;             // Icon for UI
-    public int magazineSize = 30;   // How many per mag
-    public int bulletsLeft;         // Bullets currently in mag
-    public int damage = 20;         // NEW: damage this bullet does
-}
 
 public class PlayerMovement : MonoBehaviour
 {
-    [Header("References")]
-    public CharacterController controller;
-    public Camera playerCamera;
-    public Transform shootPoint;
+    [Header("Movement")]
+    public float moveSpeed;
 
-    [Header("Movement Settings")]
-    public float moveSpeed = 5f;
-    public float jumpForce = 5f;
-    public float gravity = -9.81f;
-    private Vector3 velocity;
-    private bool isGrounded;
-    private float verticalRotation;
-    public float mouseSensitivity = 2f;
+    public float groundDrag;
 
-    [Header("Shooting Settings")]
-    public BulletType[] bulletTypes;
-    private int currentBulletIndex = 0;
-    public float fireRate = 0.2f;
-    private float nextFireTime = 0f;
-    private int extraShots = 1;  // 1 = normal, 2 = double, 3 = triple
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    public bool readyToJump;
+
+    [Header("Keybinds")]
+    public KeyCode jumpKey = KeyCode.Space;
+
+    [Header("Ground Check")]
+    public float playerHeight;
+    public LayerMask whatIsGround;
+    bool grounded;
+
+    public Transform orientation;
+
+    float horizontalInput;
+    float verticalInput;
+
+    Vector3 moveDirection;
+
+    Rigidbody rb;
 
     private void Start()
     {
-        if (controller == null)
-        {
-            controller = GetComponent<CharacterController>();
-        }
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
 
-        // Fill mags at start
-        foreach (var bt in bulletTypes)
-        {
-            bt.bulletsLeft = bt.magazineSize;
-        }
-
-        // Setup UI
-        GameUIManager.Instance.SetupBulletUI(bulletTypes);
-        UpdateUI();
-
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        readyToJump = true;
     }
 
     private void Update()
     {
-        if (PauseMenu.isPaused)
+        //ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+
+        MyInput();
+        SpeedControl();
+
+        //handle drag
+        if (grounded)
         {
-            return; // ⬅️ stop everything when paused
+            rb.linearDamping = groundDrag;
         }
-
-        HandleMovement();
-        HandleLook();
-        HandleShooting();
-        HandleReload();
-        HandleWeaponSwitch();
-    }
-
-
-    // ---------------- Movement ----------------
-    private void HandleMovement()
-    {
-        isGrounded = controller.isGrounded;
-        if (isGrounded && velocity.y < 0)
+        else
         {
-            velocity.y = -2f;
-        }
-
-        float moveX = Keyboard.current.aKey.isPressed ? -1 :
-                      Keyboard.current.dKey.isPressed ? 1 : 0;
-        float moveZ = Keyboard.current.sKey.isPressed ? -1 :
-                      Keyboard.current.wKey.isPressed ? 1 : 0;
-
-        Vector3 move = transform.right * moveX + transform.forward * moveZ;
-        controller.Move(move * moveSpeed * Time.deltaTime);
-
-        if (isGrounded && Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            velocity.y = Mathf.Sqrt(jumpForce * -2f * gravity);
-        }
-
-        velocity.y += gravity * Time.deltaTime;
-        controller.Move(velocity * Time.deltaTime);
-    }
-
-    private void HandleLook()
-    {
-        if (PauseMenu.isPaused) return; // ⬅️ Stop processing look input when paused
-
-        Vector2 mouseDelta = Mouse.current.delta.ReadValue();
-        float mouseX = mouseDelta.x * mouseSensitivity;
-        float mouseY = mouseDelta.y * mouseSensitivity;
-
-        verticalRotation -= mouseY;
-        verticalRotation = Mathf.Clamp(verticalRotation, -90f, 90f);
-
-        playerCamera.transform.localRotation = Quaternion.Euler(verticalRotation, 0f, 0f);
-        transform.Rotate(Vector3.up * mouseX);
-    }
-
-
-    // ---------------- Shooting ----------------
-    private void HandleShooting()
-    {
-        if (Mouse.current.leftButton.isPressed && Time.time >= nextFireTime)
-        {
-            BulletType bullet = bulletTypes[currentBulletIndex];
-
-            if (bullet.bulletsLeft > 0) // ✅ Only check magazine
-            {
-                nextFireTime = Time.time + fireRate;
-
-                for (int i = 0; i < extraShots; i++)
-                {
-                    ShootBullet(bullet);
-                }
-
-                bullet.bulletsLeft--; // ✅ Still consume mag bullets
-                UpdateUI();
-            }
+            rb.linearDamping = 0f;
         }
     }
 
-
-    private void ShootBullet(BulletType bullet)
+    private void FixedUpdate()
     {
-        if (bullet.prefab == null) return;
+        MovePlayer();
+    }
 
-        // Spawn the bullet prefab
-        GameObject bulletObj = Instantiate(bullet.prefab, shootPoint.position, playerCamera.transform.rotation);
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Get CustomBullet script
-        CustomBullet cb = bulletObj.GetComponent<CustomBullet>();
-        if (cb != null && cb.rb == null)
+        //when to jump
+        if(Input.GetKey(jumpKey) && readyToJump && grounded)
         {
-            cb.rb = bulletObj.GetComponent<Rigidbody>();
-        }
+            readyToJump = false;
+            
+            Jump();
 
-        // Ensure forward velocity if rb exists
-        Rigidbody rb = bulletObj.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.linearVelocity = playerCamera.transform.forward * cb.shootForce;
+            Invoke(nameof(ResetJump), jumpCooldown);
         }
     }
 
-
-    private void HandleReload()
+    private void MovePlayer()
     {
-        if (Keyboard.current.rKey.wasPressedThisFrame)
+        // Calculate movement direction
+        //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
+        transform.rotation = Quaternion.LookRotation(movement);
+
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        
+
+        // On Ground
+        if (grounded)
+        { 
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+        }
+
+        // in Air
+        else if (!grounded)
         {
-            BulletType bullet = bulletTypes[currentBulletIndex];
-
-            // ✅ Always refill mag to max
-            int needed = bullet.magazineSize - bullet.bulletsLeft;
-
-            if (needed > 0)
-            {
-                bullet.bulletsLeft = bullet.magazineSize;
-                UpdateUI();
-            }
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
     }
 
-    // ---------------- Weapon Switching ----------------
-    private void HandleWeaponSwitch()
+    private void SpeedControl()
     {
-        if (Keyboard.current.digit1Key.wasPressedThisFrame) currentBulletIndex = 0;
-        if (Keyboard.current.digit2Key.wasPressedThisFrame && bulletTypes.Length > 1) currentBulletIndex = 1;
-        if (Keyboard.current.digit3Key.wasPressedThisFrame && bulletTypes.Length > 2) currentBulletIndex = 2;
+        Vector3 flatVel = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
 
-        float scroll = Mouse.current.scroll.ReadValue().y;
-        if (scroll != 0)
+        //limit velocity if needed
+        if(flatVel.magnitude > moveSpeed)
         {
-            currentBulletIndex = (currentBulletIndex + (scroll > 0 ? 1 : -1) + bulletTypes.Length) % bulletTypes.Length;
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.linearVelocity = new Vector3(limitedVel.x, rb.linearVelocity.y, limitedVel.z);
         }
-
-        UpdateUI();
     }
 
-    // ---------------- UI ----------------
-    private void UpdateUI()
+    private void Jump()
     {
-        for (int i = 0; i < bulletTypes.Length; i++)
-        {
-            bool isActive = (i == currentBulletIndex);
-            GameUIManager.Instance.UpdateBulletUI(bulletTypes[i], i, isActive);
-        }
+        // reset y velocity
+        rb.linearVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void ResetJump()
+    {
+        readyToJump = true;
     }
 }
