@@ -1,10 +1,11 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Movement")]
     public float moveSpeed;
-
+    public float rotateSpeed;
     public float groundDrag;
 
     public float jumpForce;
@@ -80,12 +81,23 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         // Calculate movement direction
-        //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
-        transform.rotation = Quaternion.LookRotation(movement);
+        Vector3 movementDirection = new Vector3(horizontalInput, 0.0f, verticalInput);
+        moveDirection.Normalize();
 
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(moveDirection * moveSpeed * Time.deltaTime, Space.World);
+
+        if(moveDirection != Vector3.zero)
+        {
+            Quaternion toRotation = Quaternion.LookRotation(movementDirection, Vector3.up);
+
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotateSpeed * Time.deltaTime);
+        }
+        
+
+        //transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
         
 
         // On Ground
@@ -124,5 +136,13 @@ public class PlayerMovement : MonoBehaviour
     private void ResetJump()
     {
         readyToJump = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.tag == "Enemy")
+        {
+            GameManager.health -= 1;
+        }
     }
 }

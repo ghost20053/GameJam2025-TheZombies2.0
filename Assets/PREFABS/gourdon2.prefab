@@ -81,6 +81,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d2f1390a9c777d409f01711bf788107, type: 3}
       insertIndex: -1
       addedObject: {fileID: -3825792262168104182}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2d2f1390a9c777d409f01711bf788107, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5134099868738262445}
   m_SourcePrefab: {fileID: 100100000, guid: 2d2f1390a9c777d409f01711bf788107, type: 3}
 --- !u!1 &59384751065006060 stripped
 GameObject:
@@ -100,7 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeEnemy: {fileID: 4207808300085705950}
-  player: {fileID: 4587009603943528431, guid: cae699506b5abc14cbdc7034c806eeb5, type: 3}
+  player: {fileID: 9116926656786328643, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
@@ -166,3 +169,26 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!136 &5134099868738262445
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59384751065006060}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.1734352
+  m_Height: 3.4490566
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.7499504, z: 0.6734352}
