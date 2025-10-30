@@ -80,7 +80,13 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         // Calculate movement direction
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+        //moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
+
+        Vector3 movement = new Vector3(horizontalInput, 0.0f, verticalInput);
+        transform.rotation = Quaternion.LookRotation(movement);
+
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        
 
         // On Ground
         if (grounded)
