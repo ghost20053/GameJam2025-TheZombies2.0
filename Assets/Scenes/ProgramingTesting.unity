@@ -323,7 +323,7 @@ PrefabInstance:
     - target: {fileID: 4430354491534029607, guid: d851bd9bbc58bb7489b6f4a98755ff5d, type: 3}
       propertyPath: enemy1Prefab
       value: 
-      objectReference: {fileID: 1279618119732665899, guid: ba5e3a603b8b18546890e58dab3b5e1b, type: 3}
+      objectReference: {fileID: 59384751065006060, guid: a4d6fa0594401c04ca6bce87e704b05d, type: 3}
     - target: {fileID: 4430354491534029607, guid: d851bd9bbc58bb7489b6f4a98755ff5d, type: 3}
       propertyPath: enemy2Prefab
       value: 
@@ -878,31 +878,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1057397745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1987049087 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
-  m_PrefabInstance: {fileID: 7556975201600344206}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1987049091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1987049087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SerializedVersion: 0
-  m_OverrideArea: 0
-  m_Area: 0
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 1
-  m_ApplyToChildren: 1
-  m_AffectedAgents: ffffffff
 --- !u!4 &2143449340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6735702352596474360, guid: d851bd9bbc58bb7489b6f4a98755ff5d, type: 3}
@@ -916,29 +891,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1071533952077668510, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 5484556497812524269, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
+    - target: {fileID: 2436223084390698242, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 915156811}
     - target: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 7058653848324433041, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
-      propertyPath: m_Layer
-      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9116926656786328643, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
       propertyPath: m_LocalPosition.x
@@ -983,10 +942,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1987049091}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
 --- !u!1001 &8739944307535814924
 PrefabInstance:
@@ -1007,7 +963,7 @@ PrefabInstance:
     - target: {fileID: 4430354491534029607, guid: d851bd9bbc58bb7489b6f4a98755ff5d, type: 3}
       propertyPath: enemy1Prefab
       value: 
-      objectReference: {fileID: 1279618119732665899, guid: ba5e3a603b8b18546890e58dab3b5e1b, type: 3}
+      objectReference: {fileID: 59384751065006060, guid: a4d6fa0594401c04ca6bce87e704b05d, type: 3}
     - target: {fileID: 4430354491534029607, guid: d851bd9bbc58bb7489b6f4a98755ff5d, type: 3}
       propertyPath: enemy2Prefab
       value: 
