@@ -4,7 +4,11 @@
 TagManager:
   serializedVersion: 3
   tags:
+<<<<<<< Updated upstream
   - Enemy
+=======
+  - Outline
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -14,7 +18,7 @@ TagManager:
   - UI
   - whatIsGround
   - whatIsPlayer
-  - 
+  - Outline
   - 
   - 
   - 
@@ -51,3 +55,4 @@ TagManager:
   - Light Layer 5
   - Light Layer 6
   - Light Layer 7
+  - Outline
