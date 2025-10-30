@@ -51,7 +51,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: be0e7b9b0551083448d8e59d06740500, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: c1f1f6a791a5705429413fdc3b03c75b, type: 2}
+      objectReference: {fileID: 2100000, guid: 76ccd83294ce22443b7c23f765ddcb0d, type: 2}
     - target: {fileID: 919132149155446097, guid: be0e7b9b0551083448d8e59d06740500, type: 3}
       propertyPath: m_Name
       value: wrap
@@ -117,7 +117,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: b0b88cbaf7e6a55428af2c91c552fe28, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 783d45e8fb60f0f4fa64b961fdac9c89, type: 2}
+      objectReference: {fileID: 2100000, guid: 5e578b79ed331a946a9d0a7c77124ce6, type: 2}
     - target: {fileID: 919132149155446097, guid: b0b88cbaf7e6a55428af2c91c552fe28, type: 3}
       propertyPath: m_Name
       value: wicks
@@ -273,7 +273,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 1b9edede2909325408ae8fcf7443f2e0, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 34bf7159503fc4342a9c9e934c15e2d3, type: 2}
+      objectReference: {fileID: 2100000, guid: 0127992e26907054a95c70cd4736cf9e, type: 2}
     - target: {fileID: 919132149155446097, guid: 1b9edede2909325408ae8fcf7443f2e0, type: 3}
       propertyPath: m_Name
       value: explosives
@@ -501,7 +501,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: 3f88917856a3269488e6205955609185, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
       value: 
-      objectReference: {fileID: 2100000, guid: 5b14100656584c74c8b8ba1f759d2466, type: 2}
+      objectReference: {fileID: 2100000, guid: d50c81eac1303e64d95a2455a231f3a4, type: 2}
     - target: {fileID: 919132149155446097, guid: 3f88917856a3269488e6205955609185, type: 3}
       propertyPath: m_Name
       value: BombPumpkin

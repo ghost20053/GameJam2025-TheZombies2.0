@@ -278,7 +278,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5997527820413850159, guid: 26522deb5f8c29946b33507fb543df70, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.5823998
+      value: 5.4
       objectReference: {fileID: 0}
     - target: {fileID: 5997527820413850159, guid: 26522deb5f8c29946b33507fb543df70, type: 3}
       propertyPath: m_LocalPosition.y
@@ -286,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5997527820413850159, guid: 26522deb5f8c29946b33507fb543df70, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 49.593327
+      value: 50.51
       objectReference: {fileID: 0}
     - target: {fileID: 5997527820413850159, guid: 26522deb5f8c29946b33507fb543df70, type: 3}
       propertyPath: m_LocalRotation.w
@@ -333,6 +333,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5436715016907170669, guid: c3288a040804e8e478890dc940adf744, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: d50c81eac1303e64d95a2455a231f3a4, type: 2}
     - target: {fileID: 5797236563685868216, guid: c3288a040804e8e478890dc940adf744, type: 3}
       propertyPath: m_Name
       value: BombPumpkin
