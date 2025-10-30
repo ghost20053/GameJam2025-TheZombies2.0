@@ -197,33 +197,17 @@ MonoBehaviour:
   countdown: 2
   spawnPoint: {fileID: 9025045756938949818, guid: 9a3a1e13fe84e824c822a3c7478200ee, type: 3}
   waves:
-  - enemies:
+  - enemy1:
     - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
     - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
+    enemy2:
+    - {fileID: -5270695541557344862, guid: 1b0b876c80f87474e8cc84414c6208ba, type: 3}
+    - {fileID: -5270695541557344862, guid: 1b0b876c80f87474e8cc84414c6208ba, type: 3}
     timeToNextEnemy: 2
     timeToNextWave: 11
     enemiesLeft: 0
-  - enemies:
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
-    - {fileID: 1507808974628829770, guid: b1383d82b89d6a743bb70dad8a2ca4fa, type: 3}
+  - enemy1: []
+    enemy2: []
     timeToNextEnemy: 2
     timeToNextWave: 11
     enemiesLeft: 0
@@ -879,13 +863,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1071533952077668510, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5484556497812524269, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6369843357537776908, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7058653848324433041, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 9116926656786328643, guid: ccee11326e837e947b7a0bd68d907985, type: 3}
       propertyPath: m_LocalPosition.x

@@ -20,7 +20,11 @@ public class WaveSpawner : MonoBehaviour
 
         for (int i = 0; i < waves.Length; i++)
         {
-            waves[i].enemiesLeft = waves[i].enemies.Length;
+            waves[i].enemiesLeft = waves[i].enemy1.Length;
+        }
+        for (int i = 0; i < waves.Length; i++)
+        {
+            waves[i].enemiesLeft = waves[i].enemy2.Length;
         }
     }
 
@@ -57,9 +61,18 @@ public class WaveSpawner : MonoBehaviour
     {
         if (currentWaveIndex < waves.Length)
         {
-            for (int i = 0; i < waves[currentWaveIndex].enemies.Length; i++)
+            for (int i = 0; i < waves[currentWaveIndex].enemy1.Length; i++)
             {
-                Enemy enemy = Instantiate(waves[currentWaveIndex].enemies[i], spawnPoint.transform);
+                MeleeEnemy enemy = Instantiate(waves[currentWaveIndex].enemy1[i], spawnPoint.transform);
+
+                enemy.transform.SetParent(spawnPoint.transform);
+
+                yield return new WaitForSeconds(waves[currentWaveIndex].timeToNextEnemy);
+            }
+
+            for (int i = 0; i < waves[currentWaveIndex].enemy2.Length; i++)
+            {
+                ProjectileEnemy enemy = Instantiate(waves[currentWaveIndex].enemy2[i], spawnPoint.transform);
 
                 enemy.transform.SetParent(spawnPoint.transform);
 
@@ -72,7 +85,8 @@ public class WaveSpawner : MonoBehaviour
 [System.Serializable]
 public class Wave
 {
-    public Enemy[] enemies;
+    public MeleeEnemy[] enemy1;
+    public ProjectileEnemy[] enemy2;
     public float timeToNextEnemy;
     public float timeToNextWave;
 
