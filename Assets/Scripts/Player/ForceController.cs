@@ -12,11 +12,14 @@ public class ForceController : MonoBehaviour
 
     public Transform holdPosition, pushPosition;
 
+   // public Animator animator;
+
     private void Update()
     {
         // Button Down (Pull - Gather Objects)
         if (Input.GetButtonDown("Fire2"))
         {
+            //animator.SetTrigger("Pull");
             pullForce = true;
             GetPullObjects();
 
@@ -40,16 +43,36 @@ public class ForceController : MonoBehaviour
             if (pullForce)
             {
                 // Throw
+                //animator.SetTrigger("Throw");
                 ThrowForce();
                 pullForce = false;
             }
             else
             {
                 // Push
+                //animator.SetTrigger("Push");
                 PushForce();
             }
         }
     }
+
+    /*
+    public void AnimPull()
+    {
+        pullForce = true;
+        GetPullObjects();
+    }
+    public void AnimThrow()
+    {
+        pullForce = true;
+        ThrowForce();
+    }
+    public void AnimPush()
+    {
+        PushForce();
+    }
+
+    */
 
     public void PushForce()
     {
